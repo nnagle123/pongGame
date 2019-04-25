@@ -32,7 +32,7 @@ export default class Game {
       this.boardGap,
       ((this.height - this.paddleHeight)/2),
       KEYS.a,
-      KEYS.b,
+      KEYS.z,
 
 
   )

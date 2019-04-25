@@ -13,12 +13,12 @@ export default class Paddle {
           document.addEventListener('keydown', event => {
               switch(event.key){
                   case up: 
-                  console.log('up');
-                  this.y = (this.y-this.speed)
+                  this.y = Math.max(0, this.y - this.speed)
+                  console.log(this.y)
                   break;
                   case down:
-                  this.y = (this.y + this.speed)
-                  console.log('down');
+                  this.y = Math.min(this.boardHeight - this.height, this.y + this.speed)
+                  console.log(this.y);
                   break;
               }
             console.log(event);

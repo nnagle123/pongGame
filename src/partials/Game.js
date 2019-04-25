@@ -1,6 +1,7 @@
 import {SVG_NS, KEYS} from '../settings';
 import Board from './Board';
 import Paddle from './Paddle';
+import Ball from './Ball';
  
 export default class Game {
   constructor(element, width, height) {
@@ -19,6 +20,8 @@ export default class Game {
   this.paddleWidth = 8;
   this.paddleHeight = 56;
   this.boardGap = 10;
+
+
 
   //Player 1 instance
 
@@ -46,6 +49,16 @@ export default class Game {
     KEYS.down,
   )
 
+  this.radius = 8;
+
+  // Ball instance
+
+  this.ball = new Ball(
+    this.radius,
+    this.board.width,
+    this.board.height,
+  )
+
  }
   render() {
 
@@ -62,9 +75,10 @@ this.gameElement.appendChild(svg);
 //Renders board by passing svg canvas we created
 this.board.render(svg)
 
-//Render P1 and P2 paddles
+//Render P1, P2 paddles and Ball
 
       this.player1.render(svg);
       this.player2.render(svg);
+      this.ball.render(svg);
   }
 }

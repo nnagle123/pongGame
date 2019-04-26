@@ -24,7 +24,7 @@ export default class Ball {
     if (this.vx > 0){
       let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height)
       let [leftX, rightX, topY, bottomY] = paddle;
-      console.log(leftX, rightX, topY, bottomY);
+      // console.log(leftX, rightX, topY, bottomY); 
 
       if   ((this.x + this.radius >= leftX)
         && (this.x + this.radius <= rightX)
@@ -63,6 +63,12 @@ export default class Ball {
     
   }
 
+  goal(player){
+    player.score++;
+    this.reset();
+    console.log(player.score);
+  }
+
     render(svg, player1, player2) {
       this.x += this.vx;
       this.y += this.vy;
@@ -76,6 +82,18 @@ export default class Ball {
           circle.setAttributeNS(null, 'cx', this.x); //x of the centre point
           circle.setAttributeNS(null, 'cy', this.y); //y of the centre point
           svg.appendChild(circle);
+
+          //Detect Goal
+          const rightGoal = this.x + this.radius >= this.boardWidth;
+          const leftGoal = this.x - this.radius<= 0;
+
+          if(rightGoal){
+          this.goal(player1);
+          this.direction = 1;
+          } else if (leftGoal){
+            this.goal(player2);
+            this.direction = -1;
+          }
 
     }
   }

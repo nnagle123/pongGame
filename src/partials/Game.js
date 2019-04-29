@@ -9,7 +9,7 @@ export default class Game {
     this.element = element;
     this.width = width;
     this.height = height;
-
+    
 
     this.gameElement = document.getElementById(this.element)
 
@@ -67,8 +67,6 @@ export default class Game {
   )
 
   
-
-  
   // Pause Function
 
 
@@ -83,6 +81,7 @@ export default class Game {
     }
 
   })
+ 
 }
   render() {
     if (this.pause){

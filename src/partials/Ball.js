@@ -6,10 +6,11 @@ export default class Ball {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = 1;
-    this.speed = 10;
+    this.ballspeed = 0.8;
 
     this.reset();
   }
+
 
   wallCollision(){
     if (this.x - this.radius <= 0 || this.x + this.radius >= this.boardWidth){
@@ -54,7 +55,7 @@ export default class Ball {
     this.y = this.boardHeight / 2;
 
     // creates a random number between -5 and 5 that isn't 0
-
+      // This controls the speed and direction of the ball
     this.vy = 0;
     while(this.vy === 0){
     this.vy = Math.floor(Math.random() * 10 - 5);
@@ -66,12 +67,43 @@ export default class Ball {
   goal(player){
     player.score++;
     this.reset();
-    console.log(player.score);
+    // console.log(player.score);
+    // console.log("ball speed",this.ballspeed);
+    
+    if (player.score === 0) {
+      this.ballspeed = .8
+    }else if (player.score === 1) {
+      this.ballspeed = 1.1
+    }else if (player.score === 2) {
+      this.ballspeed = 1.4
+    }else if (player.score === 3) {
+      this.ballspeed = 1.7
+    }else if (player.score === 4) {
+      this.ballspeed = 1.9
+    }else if (player.score === 5) {
+      this.ballspeed = 2.1
+    }else if (player.score >= 6) {
+      this.ballspeed = 2.5
+    }
+    
+    // if (player.score === 1) {
+      
+    // } else if (player.score === 2) {
+    //   this.ballspeed += 1.5
+    //   console.log(this.ballspeed)
+    // } else {
+    //   this.ballspeed = 2
+    //   console.log(this.ballspeed)
+    // }
+
+   
   }
 
     render(svg, player1, player2) {
-      this.x += this.vx;
-      this.y += this.vy;
+      this.x += this.vx * this.ballspeed;
+      this.y += this.vy * this.ballspeed; 
+     
+        
 
       this.wallCollision();
       this.paddleCollision(player1, player2)
@@ -96,4 +128,7 @@ export default class Ball {
           }
 
     }
+   
+      
   }
+  

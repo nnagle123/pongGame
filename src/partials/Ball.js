@@ -72,10 +72,10 @@ export default class Ball {
     if (player.score === 10) {
      
       if (player.x === 10) {
-        window.confirm("PLAYER 1 WINS! Would you like to play again?");
+        alert("PLAYER 1 WINS! Press OK to play again");
         (location.reload());
       }else{
-        window.confirm("PLAYER 2 WINS! Would you like to play again?");
+        alert("PLAYER 2 WINS! Press OK to play again");
         (location.reload()); 
       }
 
@@ -85,8 +85,6 @@ export default class Ball {
 
     if (this.ballspeed <= 2.5) {
       this.ballspeed *= 1.1
-      console.log(this.ballspeed)
-
     }
 
 

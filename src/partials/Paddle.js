@@ -1,5 +1,7 @@
 import {SVG_NS} from '../settings';
 
+//Define Paddle 
+
 export default class Paddle {
     constructor(boardHeight, width, height, x, y, up, down) {
       this.boardHeight = boardHeight;
@@ -14,14 +16,11 @@ export default class Paddle {
               switch(event.key){
                   case up: 
                   this.y = Math.max(0, this.y - this.speed)
-                  console.log(this.y)
                   break;
                   case down:
                   this.y = Math.min(this.boardHeight - this.height, this.y + this.speed)
-                  console.log(this.y);
                   break;
               }
-            console.log(event);
           });
   }
    coordinates(x, y, width, height){

@@ -76,8 +76,8 @@ export default class Game {
       this.pause = !this.pause;
       this.player1.speed = 10
       this.player2.speed = 10
+      alert("The game is Paused.  Press the <space> bar to continue.")
       break;
-    
     }
 
   })
@@ -87,6 +87,7 @@ export default class Game {
     if (this.pause){
       this.player1.speed = 0
       this.player2.speed = 0
+
       return;
       }
     this.gameElement.innerHTML = '';
@@ -110,6 +111,7 @@ this.board.render(svg)
       this.ball.render(svg, this.player1, this.player2);
       this.score1.render(svg, this.player1.score);
       this.score2.render(svg, this.player2.score);
+
   }
 
 }

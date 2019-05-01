@@ -75,7 +75,7 @@ export default class Ball {
         window.confirm("PLAYER 1 WINS! Would you like to play again?");
         (location.reload());
       }else{
-        window.confirm("PLAYER 1 WINS! Would you like to play again?");
+        window.confirm("PLAYER 2 WINS! Would you like to play again?");
         (location.reload()); 
       }
 

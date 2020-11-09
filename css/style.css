@@ -58,13 +58,14 @@ table {
 
 /* Background Image just for fun */
 
-
+/* 
 body{
     background-image: url"../images/background.jpg";
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    z-index: -1;
-
+    background-size: 500px;
 }
 
+footer{
+	color: black;
+} */
 

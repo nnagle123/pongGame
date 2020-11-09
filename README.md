@@ -1,4 +1,6 @@
 ﻿# Pong Game
+ 
+ ![](images/PongImg.JPG)
 
 Stretch Goals
  - Created a pop up alert letting player know that the game is paused when paused (press space).
